@@ -4,7 +4,7 @@ CMPS 2200  Recitation 1
 """
 
 ### the only imports needed are here
-import tabulate
+
 import time
 ###
 
