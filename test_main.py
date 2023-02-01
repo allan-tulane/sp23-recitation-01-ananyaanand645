@@ -1,4 +1,4 @@
-from main import *
+from main import time
 from main import tabulate
 
 def test_compare_search():
