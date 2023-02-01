@@ -8,6 +8,7 @@ import tabulate
 import time
 ###
 
+
 def linear_search(mylist, key):
 	""" done. """
 	for i,v in enumerate(mylist):
