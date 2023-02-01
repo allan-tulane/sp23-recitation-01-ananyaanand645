@@ -4,7 +4,7 @@ CMPS 2200  Recitation 1
 """
 
 ### the only imports needed are here
-import tabulate
+
 import time
 ###
 
@@ -125,11 +125,12 @@ print(compare_search())
 
 
 def print_results(results):
-	 
+	 """
 	print(tabulate.tabulate(results,
 							headers=['n', 'linear', 'binary'],
 							floatfmt=".3f",
 							tablefmt="github"))
+  """
   
 
 def test_compare_search():
