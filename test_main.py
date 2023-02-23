@@ -1,23 +1,62 @@
+# Assignment-01 tests.
+# each test is 2 pts
+
 from main import *
 
-def test_compare_search():
-	res = compare_search(sizes=[10, 100])
-	print(res)
-	assert res[0][0] == 10
-	assert res[1][0] == 100
-	assert res[0][1] < 1
-	assert res[1][1] < 1
+def test_foo():
+    assert foo(10) == 55
 
-def test_binary_search():
-	assert binary_search([1,2,3,4,5], 5) == 4
-	assert binary_search([1,2,3,4,5], 1) == 0
-	assert binary_search([1,2,3,4,5], 6) == -1
-	### TODO: add two more tests here.
+def test_foo2():
+    assert foo(0) == 0
+    assert foo(1) == 1
 
-	###
+def test_longest_run_none():
+    assert longest_run([2,12,12,8,12,12,12,0,12,1], 999) == 0
 
-def test_linear_search():
-	""" done. """
-	assert linear_search([1,2,3,4,5], 5) == 4
-	assert linear_search([1,2,3,4,5], 1) == 0
-	assert linear_search([1,2,3,4,5], 6) == -1
+def test_longest_run():
+	assert longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3
+
+def test_longest_run2():
+	assert longest_run([12,12,12,8,12,12,0,12,1], 12) == 3
+	assert longest_run([12,12,12,8,12,12,0,12,12,12,12], 12) == 4
+
+def test_longest_run_hard():
+    """
+    This is a hard corner case that requires left_size and
+    right_size to be calculated correctly when only one half 
+    has is_entire_range==True.
+
+    [6 12] [12 12] [12 6] [6 6]
+    """
+    assert to_value(longest_run([6, 12, 12, 12, 12, 6, 6, 6], 12)) == 4
+
+def to_value(v):
+    """
+    if it is a Result object, return longest_size.
+    else return v
+    """
+    if type(v) == Result:
+        return v.longest_size
+    else:
+        return int(v)
+
+def test_longest_run_recursive_none():
+    assert to_value(longest_run_recursive([2,12,12,8,12,12,12,0,12,1], 999)) == 0
+
+def test_longest_run_recursive():
+	assert to_value(longest_run_recursive([2,12,12,8,12,12,12,0,12,1], 12)) == 3
+
+def test_longest_run_recursive2():
+	assert to_value(longest_run_recursive([12,12,12,8,12,12,0,12,1], 12)) == 3
+	assert to_value(longest_run_recursive([12,12,12,8,12,12,0,12,12,12,12], 12)) == 4
+
+def test_longest_run_recursive_hard():
+    """
+    This is a hard corner case that requires left_size and
+    right_size to be calculated correctly when only one half 
+    has is_entire_range==True.
+
+    [6 12] [12 12] [12 6] [6 6]
+    """
+    assert to_value(longest_run_recursive([6, 12, 12, 12, 12, 6, 6, 6], 12)) == 4
+

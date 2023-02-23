@@ -1,11 +1,6 @@
-# CMPS 2200  Recitation 01
+# CMPS 2200  Assignment 01
 
-**Name (Team Member 1):** ___Ananya Anand_________________  
-**Name (Team Member 2):**__Madhangi Krishnan________________
-
-In this recitation, we will investigate asymptotic complexity. Additionally, we will get familiar with the various technologies we'll use for collaborative coding.
-
-To complete this recitation, follow the instructions in this document. Some of your answers will go in this file, and others will require you to edit `main.py`.
+To complete this assignment, follow the instructions in this document. Some of your answers will go in this file, and others will require you to edit `main.py`.
 
 
 ## Setup
@@ -34,60 +29,4 @@ To complete this recitation, follow the instructions in this document. Some of y
 - Click "commit and push." This will push your code to your github repository.
 - Although you are working as a team, please have each team member submit the same code to their repository. One person can copy the code to their repl.it and submit it from there.
 
-## Comparing search algorithms
 
-We'll compare the running times of `linear_search` and `binary_search` empirically.
-
-`Binary Search`: Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise, narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.
-
-- [ ] 1. In `main.py`, the implementation of `linear_search` is already complete. Your task is to implement `binary_search`. Implement a recursive solution using the helper function `_binary_search`. 
-
-- [ ] 2. Test that your function is correct by calling from the command-line `pytest main.py::test_binary_search`
-
-- [ ] 3. Write at least two additional test cases in `test_binary_search` and confirm they pass.
-
-- [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`? 
-
-**TODO: your answer goes here
--> Worst case input value of `key` for `binary_search` is when key does not exist in mylist. And the worst case for `linear_search` is also when the key does not exist in the array. 
-
-- [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`? 
-
-ANSWER: The best case input value for the key of both 'linear search' and 'binary_search' is when the target value is equal to the first element of the list. In such cases, only one comparison is needed. Therefore, the best case performance is O(1).
-
-- [ ] 6. Complete the `time_search` function to compute the running time of a search function. Note that this is an example of a "higher order" function, since one of its parameters is another function.
-
-- [ ] 7. Complete the `compare_search` function to compare the running times of linear search and binary search. Confirm the implementation by running `pytest main.py::test_compare_search`, which contains some simple checks.
-
-- [ ] 8. Call `print_results(compare_search())` and paste the results here:
-TIMING RESULTS
-|        n |   linear |   binary |
-|----------|----------|----------|
-|       10 |    0.005 |    0.005 |
-|      100 |    0.010 |    0.004 |
-|     1000 |    0.097 |    0.008 |
-|    10000 |    1.037 |    0.013 |
-|   100000 |   10.106 |    0.017 |
-|  1000000 |  211.828 |    0.031 |
-| 10000000 | 2262.063 |    0.049 |
- 
-
-
-
-- [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
-- [ ] 
-ANSWER: Yes, these theoretical times match the empirical results. In linear search, the runtime being O(n) indicates that there will be a near-exponential increase in runtime as the input size increases. On the other hand, the rate of time increase is smaller for binary search because fewer elements need to be checked at a time as the input size increases.
-
-- [ ] 10. Binary search assumes the input list is already sorted. Assume it takes $\Theta(n^2)$ time to sort a list of length $n$. Suppose you know ahead of time that you will search the same list $k$ times. 
-  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search?
-
-**ANSWER:** When performing linear search on list of unknown elements for an unknown number of times, the worst case complexity is O(n). 
-
-  + For binary search?
-      + 
- 
-**ANSWER:** When performing linear search on list of unknown elements for an unknown number of times, the worst case complexity is O(log(n)).
-
-  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting?
-  + 
-**ANSWER:** Because binary search cannot be performed on an unsorted list, when the values of k vary in size and there are many elements, then sorting and using binary search would be the best course of action. For example, if the values of k were 10, 100, 1000, 10000, and so on, then binary search would be more efficient. Conversely, if the values of k are smaller numerically and fewer elements are present, using linear search without sorting is the most efficient route.
