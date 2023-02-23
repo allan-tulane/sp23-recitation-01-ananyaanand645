@@ -8,9 +8,13 @@ def foo(x):
     ### TODO
     pass
 
-def longest_run(mylist, key):
-    ### TODO
-    pass
+def longest_run(mylist, key) :
+  count = 0
+  max_length = 0
+  for i in mylist:
+    count = count +1 if i == key else 0
+    max_length = max(count, max_length)
+  return max_length
 
 
 class Result:
@@ -27,11 +31,15 @@ class Result:
     
     
 def longest_run_recursive(mylist, key):
-    ### TODO
-    pass
+    if len(mylist) == 1:
+        return int(mylist[0] == key)
+    return (mylist[0] == key) + longest_run_recursive(mylist[1:], key)
+
 
 ## Feel free to add your own tests here.
 def test_longest_run():
+    assert longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3
+def test_longest_run_recursive():
     assert longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3
 
 
